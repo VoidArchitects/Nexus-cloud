@@ -163,7 +163,7 @@ app.delete('/api/files/:id', authenticate, (req, res) => {
 });
 
 // Catch-all route to serve the SPA
-app.get('/*', (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
