@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Share Anything Instantly</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-panel">
+        <div class="nav-brand">
+            <i class="ph-fill ph-hexagon"></i>
+            <span>NEXUS</span>
+        </div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="home-view">Home</button>
+            <button class="nav-btn" data-target="library-view">Library</button>
+        </div>
+        <div class="nav-user">
+            <div class="search-wrapper">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" id="global-search" placeholder="Search files...">
+            </div>
+            <div class="avatar">
+                <img src="assets/icons/profilePicture.png" alt="User Avatar">
+            </div>
+        </div>
+    </nav>
+
+    <main class="app-container">
+        
+        <!-- Home View -->
+        <section id="home-view" class="view active">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="badge glass-badge">
+                        <span class="pulse-dot"></span>
+                        Secure Private Cloud
+                    </div>
+                    <h1 class="hero-title">
+                        Share Anything <br>
+                        <span class="gradient-text">Instantly.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Experience the next generation of personal file sharing. Fast, secure, and beautifully designed for your premium digital lifestyle.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary" id="cta-explore">
+                            Explore Files <i class="ph ph-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-secondary" id="cta-upload">
+                            <i class="ph ph-upload-simple"></i> Upload Now
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <!-- Simulated floating elements -->
+                        <div class="float-card card-1 glass-panel">
+                            <i class="ph-fill ph-file-pdf" style="color: #FF4757;"></i>
+                            <div class="lines">
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                            </div>
+                        </div>
+                        <div class="float-card card-2 glass-panel">
+                            <i class="ph-fill ph-image" style="color: #00F0FF;"></i>
+                            <div class="lines">
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                            </div>
+                        </div>
+                        <div class="float-card card-3 glass-panel">
+                            <i class="ph-fill ph-video-camera" style="color: #B534FF;"></i>
+                            <div class="lines">
+                                <div class="line"></div>
+                                <div class="line short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Library View -->
+        <section id="library-view" class="view">
+            <div class="library-layout">
+                
+                <!-- Left Sidebar / Stats -->
+                <aside class="library-sidebar glass-panel">
+                    <div class="storage-stats">
+                        <h3>Storage Overview</h3>
+                        <div class="donut-chart" id="storage-chart">
+                            <div class="chart-center">
+                                <span class="percent" id="storage-percent">0%</span>
+                                <span class="label">Used</span>
+                            </div>
+                        </div>
+                        <div class="stats-details">
+                            <div class="stat-row">
+                                <span class="dot" style="background: #00F0FF;"></span>
+                                <span class="label">Images</span>
+                                <span class="value" id="stat-images">0 MB</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="dot" style="background: #B534FF;"></span>
+                                <span class="label">Videos</span>
+                                <span class="value" id="stat-videos">0 MB</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="dot" style="background: #FF4757;"></span>
+                                <span class="label">Documents</span>
+                                <span class="value" id="stat-documents">0 MB</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="dot" style="background: #4A4A68;"></span>
+                                <span class="label">Free</span>
+                                <span class="value" id="stat-free">10 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-area" id="drop-zone">
+                        <input type="file" id="file-input" multiple hidden>
+                        <i class="ph ph-cloud-arrow-up"></i>
+                        <h4>Drag & Drop</h4>
+                        <p>or click to browse files</p>
+                        <button class="btn btn-outline btn-sm" id="browse-btn">Browse Files</button>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="library-main">
+                    <div class="library-header">
+                        <h2>My Files</h2>
+                        <div class="filters">
+                            <button class="filter-btn active" data-filter="all">All Files</button>
+                            <button class="filter-btn" data-filter="image">Images</button>
+                            <button class="filter-btn" data-filter="video">Videos</button>
+                            <button class="filter-btn" data-filter="document">Documents</button>
+                            <button class="filter-btn" data-filter="archive">Archives</button>
+                        </div>
+                    </div>
+
+                    <!-- File Grid -->
+                    <div class="file-grid" id="file-grid">
+                        <!-- Cards will be injected here via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modals & Toasts -->
+    <div id="image-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-panel">
+            <button class="modal-close"><i class="ph ph-x"></i></button>
+            <img id="modal-image" src="" alt="Preview">
+            <div class="modal-info">
+                <h3 id="modal-title">Filename</h3>
+                <button class="btn btn-primary btn-sm" id="modal-download">
+                    <i class="ph ph-download-simple"></i> Download
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Modal -->
+    <div id="password-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-panel" style="max-width: 400px; text-align: center;">
+            <button class="modal-close" id="pass-modal-close"><i class="ph ph-x"></i></button>
+            <i class="ph-fill ph-lock-key" style="font-size: 3rem; color: var(--neon-cyan); margin-bottom: 10px;"></i>
+            <h3 style="margin-bottom: 15px;">Admin Authentication</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">Please enter the password to perform this action.</p>
+            <input type="password" id="admin-password" class="search-wrapper" style="width: 100%; border-radius: 8px; margin-bottom: 20px; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-glass); color: white; outline: none;" placeholder="Enter Password...">
+            <button class="btn btn-primary" id="pass-submit" style="width: 100%;">Submit</button>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/app.js" type="module"></script>
+</body>
+</html>
