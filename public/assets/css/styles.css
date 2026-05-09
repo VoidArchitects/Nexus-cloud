@@ -871,6 +871,9 @@ body {
         top: 0;
         left: 0;
         transform: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: #0f0f15; /* Solid color fallback */
         padding: 10px 15px;
         height: auto;
     }
